@@ -1,0 +1,31 @@
+{
+  "sobre": {
+    "intro": "Cada peça é criada com amor e dedicação, utilizando técnicas tradicionais de macramê que passaram de geração em geração. Nosso compromisso é trazer beleza natural e sustentável para sua casa."
+  },
+  "faq": [
+    {
+      "pergunta": "Como faço para comprar uma peça?",
+      "resposta": "Você pode escolher os modelos disponíveis em nossa loja online ou solicitar uma peça personalizada entrando em contato conosco."
+    },
+    {
+      "pergunta": "Vocês fazem peças sob medida?",
+      "resposta": "Sim! Trabalhamos com personalização de cores, tamanhos e modelos. Basta nos enviar sua ideia e faremos um orçamento exclusivo."
+    },
+    {
+      "pergunta": "Quanto tempo leva para produzir uma peça?",
+      "resposta": "O prazo varia conforme o tamanho e a complexidade da peça. Em média, peças pequenas ficam prontas em até 7 dias úteis, já peças maiores podem levar de 10 a 20 dias úteis."
+    },
+    {
+      "pergunta": "Qual é o prazo de entrega?",
+      "resposta": "O prazo depende da sua região e será informado na finalização da compra, além do tempo de produção da peça.\n\nPara pedidos realizados em Curitiba e região, podemos enviar via Uber Flash ou combinar a retirada."
+    },
+    {
+      "pergunta": "Como devo cuidar do meu macramê?",
+      "resposta": "<ul><li>Evite molhar as peças.</li><li>Se acumular poeira, utilize um pincel/pano macio ou aspirador de pó leve.</li><li>Não exponha diretamente ao sol por longos períodos para preservar as cores.</li></ul>"
+    },
+    {
+      "pergunta": "Por que escolher a Caromê?",
+      "resposta": "Na Caromê, cada peça é feita à mão, com cuidado em cada detalhe, trazendo exclusividade e autenticidade para sua decoração. Diferente das produções em massa, nossos macramês são 100% artesanais, impermeabilizados para maior durabilidade e acompanhados de cavilhas de madeira envernizadas, que garantem acabamento refinado. Além disso, cada criação carrega o valor do feito à mão, tornando seu ambiente único, acolhedor e cheio de personalidade."
+    }
+  ]
+}
