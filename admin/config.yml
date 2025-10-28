@@ -1,34 +1,49 @@
-# 1. Backend: Conecte ao seu GitHub
+# 1. Backend: Usar o "Git Gateway" do Vercel
 backend:
   name: git-gateway
 
 # 2. Mídia: Para onde vão as imagens que ela subir
-media_folder: "assets/images/uploads" # <-- Onde o CMS salva as imagens
-public_folder: "/assets/images/uploads" # <-- Como o HTML lê as imagens
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 # 3. Coleções: As "coisas" editáveis
 collections:
   
-  # Coleção 1: Os Produtos (lendo o products.csv)
+  # 
+  # --- INÍCIO DA CORREÇÃO ---
+  #
+  # A coleção "produtos" agora está corretamente definida 
+  # como uma coleção do tipo "files" (plural), 
+  # que contém um único arquivo (products.csv).
+  #
   - name: "produtos"
     label: "Produtos da Loja"
     label_singular: "Produto"
     description: "Adicione, edite ou remova produtos da loja."
-    file: "products.csv" # <-- O arquivo que vamos editar
-    format: "csv" # <-- O formato dele
-    delimiter: ";" # <-- MUITO IMPORTANTE: seu CSV usa ponto-e-vírgula
-    header: true # <-- Seu CSV tem uma linha de cabeçalho
     
-    # "fields" são os campos do formulário (que correspondem às colunas do CSV)
-    fields:
-      - { label: "ID (slug)", name: "id", widget: "string", hint: "Identificador único, sem espaços ou acentos. Ex: painel-conchas" }
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Preço", name: "price", widget: "string", hint: "Exatamente como deve aparecer. Ex: R$ 69,90" }
-      - { label: "Imagem Principal", name: "image", widget: "image", hint: "A primeira imagem que aparece no card." }
-      - { label: "Galeria (Opcional)", name: "images", widget: "list", field: { label: "Imagem", name: "img", widget: "image" }, separator: "|", hint: "Imagens do modal. A Imagem Principal é incluída automaticamente." }
-      - { label: "Descrição", name: "description", widget: "text", hint: "O texto principal de descrição do produto." }
-      - { label: "Características", name: "features", widget: "list", field: { label: "Característica", name: "item", widget: "string" }, separator: "|", hint: "A lista de tópicos (medidas, material, etc). Cada item aqui vira um tópico na lista." }
-      - { label: "Link do WhatsApp", name: "whatsapp", widget: "string", hint: "O link completo de 'wa.me' para este produto." }
+    # Esta é a definição da coleção
+    files: 
+      - name: "lista_de_produtos"
+        label: "Lista de Produtos (CSV)"
+        file: "products.csv" # O arquivo que ela vai editar
+        
+        # As propriedades do arquivo vão aqui dentro
+        format: "csv"
+        delimiter: ";"
+        header: true
+        fields:
+          - { label: "ID (slug)", name: "id", widget: "string", hint: "Identificador único, sem espaços ou acentos. Ex: painel-conchas" }
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Preço", name: "price", widget: "string", hint: "Exatamente como deve aparecer. Ex: R$ 69,90" }
+          - { label: "Imagem Principal", name: "image", widget: "image", hint: "A primeira imagem que aparece no card." }
+          - { label: "Galeria (Opcional)", name: "images", widget: "list", field: { label: "Imagem", name: "img", widget: "image" }, separator: "|", hint: "Imagens do modal. A Imagem Principal é incluída automaticamente." }
+          - { label: "Descrição", name: "description", widget: "text", hint: "O texto principal de descrição do produto." }
+          - { label: "Características", name: "features", widget: "list", field: { label: "Característica", name: "item", widget: "string" }, separator: "|", hint: "A lista de tópicos (medidas, material, etc). Cada item aqui vira um tópico na lista." }
+          - { label: "Link do WhatsApp", name: "whatsapp", widget: "string", hint: "O link completo de 'wa.me' para este produto." }
+
+  #
+  # --- FIM DA CORREÇÃO ---
+  #
 
   # Coleção 2: Textos do Site (novo arquivo JSON)
   - name: "paginas"
@@ -43,11 +58,11 @@ collections:
             name: "sobre"
             widget: "object"
             fields:
-              - { label: "Texto Introdutório", name: "intro", widget: "text" }
+              - { label: "Texto IntrodLutório", name: "intro", widget: "text" }
           
           - label: "Perguntas Frequentes (FAQ)"
             name: "faq"
             widget: "list"
             fields:
               - { label: "Pergunta", name: "pergunta", widget: "string" }
-              - { label: "Resposta", name: "resposta", widget: "text" } # 'text' permite múltiplas linhas
+              - { label: "Resposta", name: "resposta", widget: "text" }
