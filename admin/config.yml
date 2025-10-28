@@ -1,65 +1,63 @@
-# 1. Backend: Usar o "Git Gateway" do Vercel
-backend:
-  name: git-gateway
+# ===========================================
+# CONFIGURAÇÃO DECAP CMS - CAROMÊ
+# ===========================================
 
-# 2. Mídia: Para onde vão as imagens que ela subir
+backend:
+  name: test-repo # ← use test-repo localmente
+  branch: main    # troque depois para o branch real no GitHub
+# Se estiver usando Netlify ou Vercel + Git Gateway, volte para:
+# backend:
+#   name: git-gateway
+#   branch: main
+
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
-# 3. Coleções: As "coisas" editáveis
+# ===========================================
+# COLEÇÕES (ÁREAS EDITÁVEIS)
+# ===========================================
 collections:
-  
-  # 
-  # --- INÍCIO DA CORREÇÃO ---
-  #
-  # A coleção "produtos" agora está corretamente definida 
-  # como uma coleção do tipo "files" (plural), 
-  # que contém um único arquivo (products.csv).
-  #
+
+  # =======================================================
+  # 1️⃣ PRODUTOS
+  # =======================================================
   - name: "produtos"
     label: "Produtos da Loja"
     label_singular: "Produto"
     description: "Adicione, edite ou remova produtos da loja."
     
-    # Esta é a definição da coleção
-    files: 
+    files:
       - name: "lista_de_produtos"
-        label: "Lista de Produtos (CSV)"
-        file: "products.csv" # O arquivo que ela vai editar
-        
-        # As propriedades do arquivo vão aqui dentro
-        format: "csv"
-        delimiter: ";"
-        header: true
+        label: "Lista de Produtos"
+        file: "content/products.json"   # 🔄 trocado de CSV para JSON
+        format: "json"
         fields:
-          - { label: "ID (slug)", name: "id", widget: "string", hint: "Identificador único, sem espaços ou acentos. Ex: painel-conchas" }
+          - { label: "ID (slug)", name: "id", widget: "string", hint: "Identificador único, ex: painel-conchas" }
           - { label: "Título", name: "title", widget: "string" }
-          - { label: "Preço", name: "price", widget: "string", hint: "Exatamente como deve aparecer. Ex: R$ 69,90" }
-          - { label: "Imagem Principal", name: "image", widget: "image", hint: "A primeira imagem que aparece no card." }
-          - { label: "Galeria (Opcional)", name: "images", widget: "list", field: { label: "Imagem", name: "img", widget: "image" }, separator: "|", hint: "Imagens do modal. A Imagem Principal é incluída automaticamente." }
-          - { label: "Descrição", name: "description", widget: "text", hint: "O texto principal de descrição do produto." }
-          - { label: "Características", name: "features", widget: "list", field: { label: "Característica", name: "item", widget: "string" }, separator: "|", hint: "A lista de tópicos (medidas, material, etc). Cada item aqui vira um tópico na lista." }
-          - { label: "Link do WhatsApp", name: "whatsapp", widget: "string", hint: "O link completo de 'wa.me' para este produto." }
+          - { label: "Preço", name: "price", widget: "string", hint: "Ex: R$ 69,90" }
+          - { label: "Imagem Principal", name: "image", widget: "image", hint: "Imagem que aparece no card principal." }
+          - { label: "Galeria (Opcional)", name: "images", widget: "list", field: { label: "Imagem", name: "img", widget: "image" }, hint: "Imagens adicionais do produto." }
+          - { label: "Descrição", name: "description", widget: "text" }
+          - { label: "Características", name: "features", widget: "list", field: { label: "Item", name: "item", widget: "string" }, hint: "Cada item vira um tópico na lista." }
+          - { label: "Link do WhatsApp", name: "whatsapp", widget: "string", hint: "Link completo (https://wa.me/...)" }
 
-  #
-  # --- FIM DA CORREÇÃO ---
-  #
-
-  # Coleção 2: Textos do Site (novo arquivo JSON)
+  # =======================================================
+  # 2️⃣ TEXTOS DO SITE (Sobre e FAQ)
+  # =======================================================
   - name: "paginas"
     label: "Conteúdo do Site"
     files:
       - name: "textos"
         label: "Textos (Sobre e FAQ)"
-        file: "content/siteData.json" # <-- Nosso novo arquivo de conteúdo
+        file: "content/siteData.json"
         format: "json"
         fields:
           - label: "Seção 'Quem Somos'"
             name: "sobre"
             widget: "object"
             fields:
-              - { label: "Texto IntrodLutório", name: "intro", widget: "text" }
-          
+              - { label: "Texto Introdutório", name: "intro", widget: "text" }
+
           - label: "Perguntas Frequentes (FAQ)"
             name: "faq"
             widget: "list"

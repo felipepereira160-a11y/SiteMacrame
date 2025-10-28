@@ -1,11 +1,19 @@
 <!doctype html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin do Site | CAROMÊ</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</head>
-<body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin do Site | CAROMÊ</title>
+
+    <!-- 👇 Linha que define explicitamente o caminho do config.yml -->
+    <script>
+      window.CMS_CONFIG_PATH = '/admin/config.yml';
+    </script>
+
+    <!-- 👇 Carrega o Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <!-- O painel do CMS será carregado automaticamente aqui -->
   </body>
 </html>
