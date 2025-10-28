@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin do Site | CAROMÊ</title>
 
-    <!-- 👇 Linha que define explicitamente o caminho do config.yml -->
-<script>
-  window.CMS_CONFIG_PATH = '/SiteMacrame/admin/config.json';
-</script>
-<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Caminho correto do config dentro da pasta pública -->
+    <script>
+      window.CMS_CONFIG_PATH = '/admin/config.json';
+    </script>
+
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
     <!-- O painel do CMS será carregado automaticamente aqui -->
